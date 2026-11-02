@@ -55,7 +55,55 @@ npm run docs:preview
 2. **事实可追溯**：机型参数、材料温度窗口必须附官方或厂商来源链接；经验性结论与官方参数分开表述。官方未公布或尚未核对的字段留空，不编造。
 3. **每篇文档开头**标注所属板块与适用机型；新增页面后在 `config.mts` 对应侧边栏分组登记路由。
 4. **一次只改一个参数**是教程内容贯穿的排查原则；故障条目按「症状 → 成因 → 对策」组织。
-5. 图片放入 `docs/public/images/`，使用 `/images/文件名` 引用；可下载模板放入 `docs/public/files/`。
+5. 图片与附件按「图片与附件」一节的规范存放和引用。
+
+## 图片与附件
+
+### 两种存放方式
+
+1. **页面专属图**：在该页面所在目录建 `images/` 子目录，用相对路径引用，构建时自动打包并带缓存哈希。
+2. **跨页面复用图**：放入 `docs/public/images/`，用 `/images/...` 引用；可下载模板、日志文件放入 `docs/public/files/`，用 `/files/...` 引用。
+
+### 基础 Markdown 写法
+
+```md
+![开箱配件对照](/images/getting-started/unboxing-01.png)
+```
+
+指定显示宽度（只写宽度，高度等比）：
+
+```md
+![层高示意](/images/slicer/layer-height.png =640x)
+```
+
+### 需要图注、边框或多图并排时用 HTML
+
+```html
+<div class="figure">
+  <img src="/images/slicer/supports-01.png" alt="支撑角度示意" />
+  <p class="caption">图：不同悬垂角度与支撑位置对照</p>
+</div>
+
+<div class="figure-row">
+  <figure>
+    <img src="/images/troubleshooting/stringing-before.png" alt="调整前" />
+    <figcaption>调整前</figcaption>
+  </figure>
+  <figure>
+    <img src="/images/troubleshooting/stringing-after.png" alt="调整后" />
+    <figcaption>调整后</figcaption>
+  </figure>
+</div>
+```
+
+`.figure`、`.caption`、`.figure-row` 通用样式已在 `theme/style.css` 中定义，直接使用即可。
+
+### 命名与体积约定
+
+- 文件名小写英文加连字符，按板块分子目录：`/images/slicer/`、`/materials/`、`/troubleshooting/`。
+- 软件界面截图用 PNG；照片与大图用 JPG / WebP；单图尽量控制在 500 KB 内，宽屏配图宽度 1200–1600 px。
+- 图片必须先存进工程目录，不引用外部 CDN 或会过期的网络临时链接。
+- 附件下载链接：`[下载打印日志模板](/files/print-log-template.md)`。
 
 ## 新增一篇教程
 

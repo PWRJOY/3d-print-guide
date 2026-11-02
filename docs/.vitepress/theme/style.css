@@ -59,3 +59,46 @@
 .vp-doc section {
   margin-top: 2.5rem;
 }
+
+/* ===== 配图通用样式：Markdown 与 HTML 片段共用 ===== */
+.vp-doc img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.vp-doc .figure {
+  margin: 1.4rem 0;
+}
+
+.vp-doc .figure img,
+.vp-doc figure img {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc .caption,
+.vp-doc figcaption {
+  margin-top: 0.5rem;
+  font-size: 13px;
+  color: var(--vp-c-text-3);
+  text-align: center;
+}
+
+.vp-doc .figure-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 1.4rem 0;
+}
+
+.vp-doc .figure-row figure {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .vp-doc .figure-row {
+    grid-template-columns: 1fr;
+  }
+}
