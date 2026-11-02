@@ -1,8 +1,16 @@
+import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vitepress'
 
 // 站点全局配置：导航、侧边栏、搜索、页脚统一在这里维护。
 // 新增教程页面后，在对应 sidebar 分组里登记一条即可。
 export default defineConfig({
+  vite: {
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('..', import.meta.url))
+      }
+    }
+  },
   lang: 'zh-CN',
   title: '3D打印指南',
   description: '以拓竹 X2D 为首发机型的 FDM 3D 打印学习手册：从开箱首打到材料、切片、建模与故障排查。',
@@ -154,7 +162,8 @@ export default defineConfig({
       ]
     },
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/' }],
+    // 本地阶段暂不挂外部链接；将来连接 GitHub 仓库后在此补充仓库地址。
+    socialLinks: [],
     footer: {
       message: '3D打印指南 · 个人学习手册，参数以官方文档与耗材厂商说明为准。',
       copyright: '内容采用 Git 版本管理，修改记录见仓库提交历史。'

@@ -1,5 +1,5 @@
 <script setup>
-import StageTimeline from '.vitepress/theme/components/StageTimeline.vue'
+import StageTimeline from '@/.vitepress/theme/components/StageTimeline.vue'
 </script>
 
 # 3D打印指南

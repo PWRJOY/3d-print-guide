@@ -1,6 +1,6 @@
 <script setup>
-import { materials } from '.vitepress/data/materials'
-import MaterialCard from '.vitepress/theme/components/MaterialCard.vue'
+import { materials } from '@/.vitepress/data/materials'
+import MaterialCard from '@/.vitepress/theme/components/MaterialCard.vue'
 const material = materials.find((m) => m.id === 'abs-asa')
 </script>
 

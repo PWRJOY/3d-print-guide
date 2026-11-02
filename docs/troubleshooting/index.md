@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { faults } from '.vitepress/data/faults'
-import FaultEntry from '.vitepress/theme/components/FaultEntry.vue'
+import { faults } from '@/.vitepress/data/faults'
+import FaultEntry from '@/.vitepress/theme/components/FaultEntry.vue'
 
 const allTags = [...new Set(faults.flatMap((f) => f.tags))].sort()
 const activeTag = ref('')

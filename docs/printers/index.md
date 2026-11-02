@@ -1,5 +1,5 @@
 <script setup>
-import PrinterTabs from '.vitepress/theme/components/PrinterTabs.vue'
+import PrinterTabs from '@/.vitepress/theme/components/PrinterTabs.vue'
 </script>
 
 # 机型库

@@ -24,7 +24,7 @@ export const materials: MaterialProfile[] = [
     nozzleTemp: '190–220 ℃',
     bedTemp: '50–65 ℃',
     chamber: '无需腔温加热',
-    useCases: ['摆件与展示模型', '原型验证', '收纳与支架', ' fit check 试装件'],
+    useCases: ['摆件与展示模型', '原型验证', '收纳与支架', 'fit check 试装件'],
     cautions: [
       '刚性但脆，受冲击易断裂，不做受力功能件',
       '耐温差：环境温度超过约 55–60 ℃ 会软化变形，避免放在车内、窗台等受热位置',
