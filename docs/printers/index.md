@@ -4,7 +4,7 @@ import PrinterTabs from '@/.vitepress/theme/components/PrinterTabs.vue'
 
 # 机型库
 
-本站首发完整录入 **拓竹 X2D**；其余机型为预留槽位，待核对官方规格后补入数据文件，选项卡会自动出现对应参数。
+本站当前完整录入 **拓竹 X2D**；其余机型为预留槽位，待核对官方规格后补入数据文件，选项卡会自动出现对应参数。
 
 > 参数唯一来源是 `docs/.vitepress/data/printers.ts`。新增机型时在该文件追加一条记录，页面无需改动。
 

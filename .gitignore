@@ -5,6 +5,9 @@ node_modules/
 docs/.vitepress/cache/
 docs/.vitepress/dist/
 
+# 本地临时构建日志
+build-log.txt
+
 # 系统与编辑器
 .DS_Store
 Thumbs.db

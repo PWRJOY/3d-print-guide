@@ -13,11 +13,14 @@ export default defineConfig({
   },
   lang: 'zh-CN',
   title: '3D打印指南',
-  description: '以拓竹 X2D 为首发机型的 FDM 3D 打印学习手册：从开箱首打到材料、切片、建模与故障排查。',
-  // 本地预览留空；将来发布到 GitHub Pages 子路径时改为 '/仓库名/'
-  base: '/',
+  description: '围绕拓竹 X2D 编写的 FDM 3D 打印学习手册：从开箱首打到材料、切片、建模与故障排查。',
+  // GitHub Pages 发布在仓库名子路径下；本地 dev/preview 由 VitePress 自动适配前缀。
+  base: '/3d-print-guide/',
   cleanUrls: true,
   lastUpdated: true,
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/3d-print-guide/favicon.svg' }]
+  ],
 
   themeConfig: {
     siteTitle: '3D打印指南',

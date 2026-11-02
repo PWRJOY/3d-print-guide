@@ -63,7 +63,7 @@ export const printers: PrinterProfile[] = [
     brand: 'Bambu Lab 拓竹科技',
     status: 'active',
     intro:
-      '双喷嘴、主动腔温、AI 摄像头监测的桌面 FDM 打印机：主喷嘴负责模型主体，辅助喷嘴负责支撑与换色，是本站首发完整录入的机型。',
+      '双喷嘴、主动腔温、AI 摄像头监测的桌面 FDM 打印机：主喷嘴负责模型主体，辅助喷嘴负责支撑与换色，是本站当前录入的机型。',
     printVolume: [
       { label: '主热端单喷嘴', value: '256 × 256 × 260 mm' },
       { label: '辅助热端单喷嘴', value: '235.5 × 256 × 256 mm' },

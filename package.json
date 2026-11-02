@@ -1,7 +1,7 @@
 {
   "name": "3d-print-guide",
   "version": "0.1.0",
-  "description": "3D打印指南：以拓竹 X2D 为首发机型的 FDM 3D 打印学习手册",
+  "description": "3D打印指南：围绕拓竹 X2D 编写的 FDM 3D 打印学习手册",
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs --port 28137",

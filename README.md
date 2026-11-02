@@ -1,6 +1,6 @@
 # 3D打印指南
 
-以拓竹 X2D 为首发机型的 FDM 3D 打印学习手册，基于 VitePress 构建，通过 Git 管理内容，可部署到 GitHub Pages。
+围绕拓竹 X2D 编写的 FDM 3D 打印学习手册，基于 VitePress 构建，通过 Git 管理内容，可部署到 GitHub Pages。
 
 ## 本地开发
 
@@ -119,10 +119,16 @@ npm run docs:preview
 
 ## 发布到 GitHub Pages
 
-1. 仓库推送到 GitHub，分支为 `main`。
-2. 仓库 Settings → Pages，部署来源选择 **GitHub Actions**。
-3. 站点若发布在 `/仓库名/` 子路径，把 `config.mts` 的 `base` 改为 `'/仓库名/'`。
-4. 推送后 `.github/workflows/deploy.yml` 自动构建并发布；Actions 页面可查看部署结果。
+站点发布在 `https://<GitHub 用户名>.github.io/3d-print-guide/` 子路径下，`config.mts` 的 `base` 已设为 `'/3d-print-guide/'`。
+
+首次发布步骤：
+
+1. 在 GitHub 网页端创建空仓库 `3d-print-guide`（不要勾选初始化 README、.gitignore 或 License）。
+2. 本地添加远程地址并推送 `main` 分支。
+3. 仓库 Settings → Pages，部署来源选择 **GitHub Actions**。
+4. 推送后 `.github/workflows/deploy.yml` 自动构建并发布；Actions 页面可查看部署结果，首次成功后在线地址由 Pages 页面给出。
+
+后续每次推送 `main`，工作流都会自动重新构建并发布。
 
 ## 内容边界
 
