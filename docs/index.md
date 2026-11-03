@@ -21,51 +21,6 @@ const base = import.meta.env.BASE_URL
 
 <StageTimeline />
 
-## 内容板块
-
-<div class="guide-grid">
-  <a class="guide-card" :href="base + 'getting-started/'">
-    <h3>快速上手</h3>
-    <p>开箱清点、软件配网、首次校准、第一组测试件与首打成功标准。</p>
-  </a>
-  <a class="guide-card" :href="base + 'printers/'">
-    <h3>机型库</h3>
-    <p>X2D 完整参数、耗材兼容、传感器配置与专属注意事项，预留多机型对比槽位。</p>
-  </a>
-  <a class="guide-card" :href="base + 'slicer/'">
-    <h3>切片教程</h3>
-    <p>Bambu Studio 逐项参数：层高、壁厚填充、支撑、速度温度冷却、接缝外观。</p>
-  </a>
-  <a class="guide-card" :href="base + 'materials/'">
-    <h3>材料百科</h3>
-    <p>PLA、PETG、TPU、ABS/ASA、PA/PC 与 PVA 的温度窗口、用途、注意事项与干燥存储。</p>
-  </a>
-  <a class="guide-card" :href="base + 'dual-nozzle/'">
-    <h3>双喷嘴专题</h3>
-    <p>双色多色、易拆支撑、PVA 水溶支撑与主辅喷嘴分工规则。</p>
-  </a>
-  <a class="guide-card" :href="base + 'troubleshooting/'">
-    <h3>缺陷排查</h3>
-    <p>按症状检索：附着翘边、拉丝、层裂、堵头、表面质量、悬垂与顶面问题。</p>
-  </a>
-  <a class="guide-card" :href="base + 'modeling/'">
-    <h3>建模与设计</h3>
-    <p>Tinkercad、Fusion 360、Blender 学习顺序，以及面向 3D 打印的设计规范。</p>
-  </a>
-  <a class="guide-card" :href="base + 'post-processing/'">
-    <h3>后处理</h3>
-    <p>拆支撑、逐级打磨、补土上色、攻丝与热熔螺母、部件粘合。</p>
-  </a>
-  <a class="guide-card" :href="base + 'maintenance/'">
-    <h3>维护保养</h3>
-    <p>喷嘴、滤芯、导轨、耗材干燥的周期表与日常检查流程。</p>
-  </a>
-  <a class="guide-card" :href="base + 'advanced/'">
-    <h3>专家进阶</h3>
-    <p>挤出与热学原理、维护维修、进阶切片策略与后续工艺拓展方向。</p>
-  </a>
-</div>
-
 ## 新手五条习惯
 
 1. **一次只改一个变量**：温度、速度、冷却同时调整，无法判断是哪一项起了作用。
@@ -109,34 +64,5 @@ const base = import.meta.env.BASE_URL
   font-size: 13px;
   color: var(--vp-c-text-3);
   margin: 0;
-}
-.guide-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 14px;
-  margin: 1rem 0;
-}
-.guide-card {
-  display: block;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  padding: 16px 18px;
-  text-decoration: none;
-  color: inherit;
-  transition: border-color .15s ease;
-}
-.guide-card:hover {
-  border-color: var(--vp-c-brand-2);
-}
-.guide-card h3 {
-  margin: 0 0 6px;
-  font-size: 16px;
-  color: var(--vp-c-brand-1);
-}
-.guide-card p {
-  margin: 0;
-  font-size: 14px;
-  color: var(--vp-c-text-2);
-  line-height: 1.7;
 }
 </style>
