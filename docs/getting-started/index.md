@@ -1,3 +1,8 @@
+<script setup>
+// 站点部署在 base 子路径下；手写 HTML 链接不会自动补 base，这里用 Vite 注入的 BASE_URL 拼接。
+const base = import.meta.env.BASE_URL
+</script>
+
 # 快速上手
 
 本板块面向第一次接触 3D 打印、使用拓竹 X2D 的新手。按顺序走完四步，目标是在第一周内独立完成一次成功打印，并知道出问题时去哪里排查。
@@ -5,28 +10,28 @@
 ## 学习顺序
 
 <div class="steps">
-  <a class="step" href="/getting-started/01-unboxing">
+  <a class="step" :href="base + 'getting-started/01-unboxing'">
     <span class="step-no">01</span>
     <div>
       <h3>开箱清点与环境准备</h3>
       <p>配件核对、供电与通风、安全注意事项。</p>
     </div>
   </a>
-  <a class="step" href="/getting-started/02-software">
+  <a class="step" :href="base + 'getting-started/02-software'">
     <span class="step-no">02</span>
     <div>
       <h3>软件安装与配网</h3>
       <p>Bambu Studio、Bambu Handy 安装、账号绑定与 Wi-Fi 连接。</p>
     </div>
   </a>
-  <a class="step" href="/getting-started/03-calibration">
+  <a class="step" :href="base + 'getting-started/03-calibration'">
     <span class="step-no">03</span>
     <div>
       <h3>首次校准</h3>
       <p>热床调平、流量校准、振动补偿与打印板检查。</p>
     </div>
   </a>
-  <a class="step" href="/getting-started/04-first-print">
+  <a class="step" :href="base + 'getting-started/04-first-print'">
     <span class="step-no">04</span>
     <div>
       <h3>第一组测试件</h3>

@@ -1,6 +1,9 @@
 # 3D打印指南
 
-围绕拓竹 X2D 编写的 FDM 3D 打印学习手册，基于 VitePress 构建，通过 Git 管理内容，可部署到 GitHub Pages。
+围绕拓竹 X2D 编写的 FDM 3D 打印学习手册，基于 VitePress 构建，通过 Git 管理内容，部署到 GitHub Pages。
+
+- 在线站点：https://pwrjoy.github.io/3d-print-guide/
+- 源码仓库：https://github.com/PWRJOY/3d-print-guide
 
 ## 本地开发
 
@@ -119,7 +122,7 @@ npm run docs:preview
 
 ## 发布到 GitHub Pages
 
-站点发布在 `https://<GitHub 用户名>.github.io/3d-print-guide/` 子路径下，`config.mts` 的 `base` 已设为 `'/3d-print-guide/'`。
+站点发布在 `https://pwrjoy.github.io/3d-print-guide/` 子路径下，`config.mts` 的 `base` 已设为 `'/3d-print-guide/'`。
 
 首次发布步骤：
 

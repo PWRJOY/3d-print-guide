@@ -8,6 +8,7 @@
 - [Bambu Lab Academy](https://wiki.bambulab.com/zh/home)：官方系统课程，从设备操作到软件进阶。
 - [拓竹 X2D 技术参数（官方）](https://bambulab.cn/zh-cn/x2d/specs)
 - [拓竹 X2D 产品介绍（官方）](https://bambulab.com/zh/x2d)
+- [X2D 系列打印机 AMS 套装开箱指南（B 站 · 拓竹服务官方）](https://www.bilibili.com/video/BV18HQgB6Ejm/)：主机与 AMS 套装开箱、配件对照实拍，约 5 分 06 秒。
 - [MakerWorld 模型社区](https://makerworld.com/)：已针对拓竹设备调校参数的模型平台；下载前查看作者标注的适用机型与打印备注。
 
 ## 软件

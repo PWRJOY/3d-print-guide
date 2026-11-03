@@ -58,18 +58,22 @@ defineProps<{ printer: PrinterProfile }>()
 
     <section v-if="printer.materials" class="spec-group">
       <h3>耗材兼容</h3>
-      <h4>主热端</h4>
-      <ul class="chip-list">
-        <li v-for="m in printer.materials.mainHotend" :key="m">{{ m }}</li>
-      </ul>
-      <h4>辅助热端</h4>
-      <ul class="chip-list">
-        <li v-for="m in printer.materials.auxiliaryHotend" :key="m">{{ m }}</li>
-      </ul>
-      <h4>辅助喷嘴谨慎使用</h4>
-      <ul class="chip-list caution">
-        <li v-for="m in printer.materials.caution" :key="m">{{ m }}</li>
-      </ul>
+      <table class="spec-table">
+        <tbody>
+          <tr>
+            <th>主热端</th>
+            <td>{{ printer.materials.mainHotend.join('、') }}</td>
+          </tr>
+          <tr>
+            <th>辅助热端</th>
+            <td>{{ printer.materials.auxiliaryHotend.join('、') }}</td>
+          </tr>
+          <tr>
+            <th>辅助喷嘴谨慎使用</th>
+            <td>{{ printer.materials.caution.join('；') }}</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section class="spec-group">
@@ -138,15 +142,11 @@ defineProps<{ printer: PrinterProfile }>()
   padding: 8px 12px;
   word-break: break-word;
 }
-.chip-list,
 .bullet-list,
 .source-list {
   margin: 0;
   padding-left: 1.2rem;
   line-height: 1.8;
-}
-.chip-list.caution li {
-  color: var(--vp-c-accent);
 }
 .source-list a {
   word-break: break-all;

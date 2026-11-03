@@ -1,5 +1,7 @@
 <script setup>
 import StageTimeline from '@/.vitepress/theme/components/StageTimeline.vue'
+// 站点部署在 base 子路径下；手写 HTML 链接不会自动补 base，这里用 Vite 注入的 BASE_URL 拼接。
+const base = import.meta.env.BASE_URL
 </script>
 
 # 3D打印指南
@@ -7,8 +9,8 @@ import StageTimeline from '@/.vitepress/theme/components/StageTimeline.vue'
 <div class="hero">
   <p class="hero-lede">围绕拓竹 X2D 编写的 FDM 3D 打印学习手册：从开箱首打，到切片、材料、双喷嘴、建模与故障排查，按阶段一步步走到独立排障与原创设计。</p>
   <div class="hero-actions">
-    <a class="btn primary" href="/getting-started/">开始快速上手</a>
-    <a class="btn" href="/printers/">查看机型参数</a>
+    <a class="btn primary" :href="base + 'getting-started/'">开始快速上手</a>
+    <a class="btn" :href="base + 'printers/'">查看机型参数</a>
   </div>
   <p class="hero-note">当前录入机型：拓竹 X2D；其他机型在机型库中预留槽位，后续核对官方资料后补充。</p>
 </div>
@@ -22,43 +24,43 @@ import StageTimeline from '@/.vitepress/theme/components/StageTimeline.vue'
 ## 内容板块
 
 <div class="guide-grid">
-  <a class="guide-card" href="/getting-started/">
+  <a class="guide-card" :href="base + 'getting-started/'">
     <h3>快速上手</h3>
     <p>开箱清点、软件配网、首次校准、第一组测试件与首打成功标准。</p>
   </a>
-  <a class="guide-card" href="/printers/">
+  <a class="guide-card" :href="base + 'printers/'">
     <h3>机型库</h3>
     <p>X2D 完整参数、耗材兼容、传感器配置与专属注意事项，预留多机型对比槽位。</p>
   </a>
-  <a class="guide-card" href="/slicer/">
+  <a class="guide-card" :href="base + 'slicer/'">
     <h3>切片教程</h3>
     <p>Bambu Studio 逐项参数：层高、壁厚填充、支撑、速度温度冷却、接缝外观。</p>
   </a>
-  <a class="guide-card" href="/materials/">
+  <a class="guide-card" :href="base + 'materials/'">
     <h3>材料百科</h3>
     <p>PLA、PETG、TPU、ABS/ASA、PA/PC 与 PVA 的温度窗口、用途、注意事项与干燥存储。</p>
   </a>
-  <a class="guide-card" href="/dual-nozzle/">
+  <a class="guide-card" :href="base + 'dual-nozzle/'">
     <h3>双喷嘴专题</h3>
     <p>双色多色、易拆支撑、PVA 水溶支撑与主辅喷嘴分工规则。</p>
   </a>
-  <a class="guide-card" href="/troubleshooting/">
+  <a class="guide-card" :href="base + 'troubleshooting/'">
     <h3>缺陷排查</h3>
     <p>按症状检索：附着翘边、拉丝、层裂、堵头、表面质量、悬垂与顶面问题。</p>
   </a>
-  <a class="guide-card" href="/modeling/">
+  <a class="guide-card" :href="base + 'modeling/'">
     <h3>建模与设计</h3>
     <p>Tinkercad、Fusion 360、Blender 学习顺序，以及面向 3D 打印的设计规范。</p>
   </a>
-  <a class="guide-card" href="/post-processing/">
+  <a class="guide-card" :href="base + 'post-processing/'">
     <h3>后处理</h3>
     <p>拆支撑、逐级打磨、补土上色、攻丝与热熔螺母、部件粘合。</p>
   </a>
-  <a class="guide-card" href="/maintenance/">
+  <a class="guide-card" :href="base + 'maintenance/'">
     <h3>维护保养</h3>
     <p>喷嘴、滤芯、导轨、耗材干燥的周期表与日常检查流程。</p>
   </a>
-  <a class="guide-card" href="/advanced/">
+  <a class="guide-card" :href="base + 'advanced/'">
     <h3>专家进阶</h3>
     <p>挤出与热学原理、维护维修、进阶切片策略与后续工艺拓展方向。</p>
   </a>
