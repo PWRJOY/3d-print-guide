@@ -10,9 +10,9 @@ const base = import.meta.env.BASE_URL
   <p class="hero-lede">围绕拓竹 X2D 编写的 FDM 3D 打印学习手册：从开箱首打，到切片、材料、双喷嘴、建模与故障排查，按阶段一步步走到独立排障与原创设计。</p>
   <div class="hero-actions">
     <a class="btn primary" :href="base + 'getting-started/'">开始快速上手</a>
-    <a class="btn" :href="base + 'printers/'">查看机型参数</a>
+    <a class="btn" :href="base + 'printers/x2d'">查看机型参数</a>
   </div>
-  <p class="hero-note">当前录入机型：拓竹 X2D；其他机型在机型库中预留槽位，后续核对官方资料后补充。</p>
+  <p class="hero-note">当前录入机型：拓竹 X2D、H2D、P2S、A2L、A1，参数均核对自官方规格资料。</p>
 </div>
 
 ## 五阶段成长路线

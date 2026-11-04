@@ -48,7 +48,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '快速上手', link: '/getting-started/' },
-      { text: '机型库', link: '/printers/' },
+      { text: '机型库', link: '/printers/x2d' },
       {
         text: '工艺',
         items: [
@@ -87,8 +87,11 @@ export default defineConfig({
         {
           text: '机型库',
           items: [
-            { text: '机型总览与参数对比', link: '/printers/' },
-            { text: '拓竹 X2D 专属说明', link: '/printers/x2d' }
+            { text: '拓竹 X2D', link: '/printers/x2d' },
+            { text: '拓竹 H2D', link: '/printers/h2d' },
+            { text: '拓竹 P2S', link: '/printers/p2s' },
+            { text: '拓竹 A2L', link: '/printers/a2l' },
+            { text: '拓竹 A1', link: '/printers/a1' }
           ]
         }
       ],

@@ -1,5 +1,7 @@
 /* 全局主题覆盖：深青蓝主色 + 橙色强调，工程手册式克制排版 */
 :root {
+  --vp-sidebar-width: 248px;
+
   --vp-c-brand-1: #2a6178;
   --vp-c-brand-2: #3d7a94;
   --vp-c-brand-3: #5e93a8;
@@ -53,6 +55,87 @@
 /* 通用提示框配色对齐主色 */
 .vp-doc .custom-block.tip {
   border-color: var(--vp-c-brand-soft);
+}
+
+/* 侧边栏层级：分组标题加粗、子项缩进（VitePress 默认同宽同级，层级感弱） */
+.VPSidebar .VPSidebarItem.level-0 > .item > .text {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.VPSidebar .VPSidebarItem.level-1 > .item {
+  padding-left: 14px;
+}
+
+.VPSidebar .VPSidebarItem.level-1 > .item > .text {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}
+
+/* 超宽屏固定侧边栏宽度：VitePress ≥1440px 会按屏幕宽度把侧边栏与内容区整体居中并撑宽侧边栏，
+   改为固定窄宽模式（侧边栏贴左、内容区流式），覆盖默认公式规则。
+   VitePress 组件样式带 scoped 属性选择器、特异性更高，这里用 !important 强制覆盖 */
+@media (min-width: 1440px) {
+  .VPSidebar {
+    padding-left: 32px !important;
+    width: var(--vp-sidebar-width) !important;
+    max-width: var(--vp-sidebar-width) !important;
+  }
+
+  .VPNavBar.has-sidebar .title {
+    padding-left: 32px !important;
+    width: var(--vp-sidebar-width) !important;
+  }
+
+  .VPNavBar.has-sidebar .content {
+    padding-left: var(--vp-sidebar-width) !important;
+    padding-right: 32px !important;
+  }
+
+  .VPContent,
+  .VPLocalNav {
+    padding-left: var(--vp-sidebar-width) !important;
+  }
+}
+
+/* ===== 侧边栏宽度拖拽手柄 ===== */
+.vp-sidebar-resizer {
+  position: fixed;
+  top: var(--vp-nav-height);
+  bottom: 0;
+  left: calc(var(--vp-sidebar-width) - 5px);
+  width: 10px;
+  z-index: calc(var(--vp-z-index-sidebar) + 1);
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.vp-sidebar-resizer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4px;
+  width: 2px;
+  background: transparent;
+  transition: background-color 0.2s;
+}
+
+.vp-sidebar-resizer:hover::after,
+.vp-sidebar-resizer:active::after {
+  background: var(--vp-c-brand-2);
+}
+
+body.vp-resizing {
+  user-select: none;
+  cursor: col-resize;
+}
+
+/* 移动端抽屉模式不显示拖拽手柄 */
+@media (max-width: 959px) {
+  .vp-sidebar-resizer {
+    display: none;
+  }
 }
 
 /* 小节间距 */

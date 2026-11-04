@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { PrinterProfile } from '../../data/printers'
 
-defineProps<{ printer: PrinterProfile }>()
+// 按 group 渲染单个参数区块；组标题由页面 markdown 提供（VitePress 大纲只收集 markdown 标题）
+defineProps<{ printer: PrinterProfile; group: string }>()
 </script>
 
 <template>
   <div v-if="printer.status === 'active' && printer.hotend" class="spec">
-    <section class="spec-group">
-      <h3>打印体积</h3>
+    <section v-if="group === 'volume'" class="spec-group">
       <table class="spec-table">
         <tbody>
           <tr v-for="v in printer.printVolume" :key="v.label">
@@ -18,8 +18,7 @@ defineProps<{ printer: PrinterProfile }>()
       </table>
     </section>
 
-    <section class="spec-group">
-      <h3>热端与喷嘴</h3>
+    <section v-else-if="group === 'hotend'" class="spec-group">
       <table class="spec-table">
         <tbody>
           <tr><th>喷嘴最高温度</th><td>{{ printer.hotend.nozzleMaxTemp }}</td></tr>
@@ -32,8 +31,7 @@ defineProps<{ printer: PrinterProfile }>()
       </table>
     </section>
 
-    <section class="spec-group">
-      <h3>热床与腔温</h3>
+    <section v-else-if="group === 'bed'" class="spec-group">
       <table class="spec-table">
         <tbody>
           <tr><th>热床最高温度</th><td>{{ printer.bed?.maxTemp }}</td></tr>
@@ -46,8 +44,7 @@ defineProps<{ printer: PrinterProfile }>()
       </table>
     </section>
 
-    <section v-if="printer.speed" class="spec-group">
-      <h3>运动速度</h3>
+    <section v-else-if="group === 'speed' && printer.speed" class="spec-group">
       <table class="spec-table">
         <tbody>
           <tr><th>工具头最大移动速度</th><td>{{ printer.speed.maxVelocity }}</td></tr>
@@ -56,28 +53,32 @@ defineProps<{ printer: PrinterProfile }>()
       </table>
     </section>
 
-    <section v-if="printer.materials" class="spec-group">
-      <h3>耗材兼容</h3>
+    <section v-else-if="group === 'materials' && printer.materials" class="spec-group">
       <table class="spec-table">
         <tbody>
           <tr>
             <th>主热端</th>
             <td>{{ printer.materials.mainHotend.join('、') }}</td>
           </tr>
-          <tr>
+          <tr v-if="printer.materials.auxiliaryHotend.length">
             <th>辅助热端</th>
             <td>{{ printer.materials.auxiliaryHotend.join('、') }}</td>
           </tr>
-          <tr>
-            <th>辅助喷嘴谨慎使用</th>
+          <tr v-if="printer.materials.caution.length">
+            <th>{{ printer.materials.auxiliaryHotend.length ? '辅助喷嘴谨慎使用' : '不推荐 / 谨慎使用' }}</th>
             <td>{{ printer.materials.caution.join('；') }}</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <section class="spec-group">
-      <h3>传感器与软件</h3>
+    <section v-else-if="group === 'highlights'" class="spec-group">
+      <ul class="bullet-list">
+        <li v-for="h in printer.highlights" :key="h">{{ h }}</li>
+      </ul>
+    </section>
+
+    <section v-else-if="group === 'sensors'" class="spec-group">
       <ul class="bullet-list">
         <li v-for="s in printer.sensors" :key="s">{{ s }}</li>
       </ul>
@@ -87,15 +88,13 @@ defineProps<{ printer: PrinterProfile }>()
       </ul>
     </section>
 
-    <section class="spec-group notes">
-      <h3>使用注意事项</h3>
+    <section v-else-if="group === 'notes'" class="spec-group notes">
       <ul class="bullet-list">
         <li v-for="n in printer.notes" :key="n">{{ n }}</li>
       </ul>
     </section>
 
-    <section class="spec-group">
-      <h3>参数来源</h3>
+    <section v-else-if="group === 'sources'" class="spec-group">
       <ul class="source-list">
         <li v-for="s in printer.sources" :key="s">
           <a :href="s" target="_blank" rel="noopener noreferrer">{{ s }}</a>
@@ -113,11 +112,6 @@ defineProps<{ printer: PrinterProfile }>()
 <style scoped>
 .spec-group {
   margin: 1.4rem 0;
-}
-.spec-group h3 {
-  font-size: 15px;
-  margin: 0 0 0.6rem;
-  color: var(--vp-c-brand-1);
 }
 .spec-group h4 {
   font-size: 13px;
